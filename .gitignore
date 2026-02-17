@@ -1,0 +1,10 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Database
+milk.db
+
+# OS
+.DS_Store
