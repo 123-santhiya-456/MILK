@@ -1,10 +1,7 @@
-# Python
-venv/
+.env
+backend/.env
 __pycache__/
 *.pyc
-
-# Database
+venv/
 milk.db
-
-# OS
-.DS_Store
+model.pkl
