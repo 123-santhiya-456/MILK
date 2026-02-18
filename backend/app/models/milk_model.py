@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Float, String, DateTime
+'''from sqlalchemy import Column, Integer, Float, String, DateTime
 from datetime import datetime
 from app.db.database import Base
 
@@ -20,4 +20,30 @@ class MilkRecord(Base):
     price_per_liter = Column(Float)
     total_amount = Column(Float)
 
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=datetime.utcnow)'''
+from sqlalchemy import Column, Integer, Float, String, DateTime, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.sql import func
+from app.db.database import Base
+
+class MilkRecord(Base):
+    __tablename__ = "milk_records"
+
+    id = Column(Integer, primary_key=True, index=True)
+    vendor_id = Column(Integer, ForeignKey("vendors.id"))
+    
+    ph = Column(Float)
+    temperature = Column(Float)
+    weight = Column(Float)
+
+    risk_level = Column(String)
+    probability = Column(Float)
+    spoilage_hours = Column(Float)
+
+    price_per_liter = Column(Float)
+    total_amount = Column(Float)
+
+    timestamp = Column(DateTime(timezone=True), server_default=func.now())
+
+    vendor = relationship("Vendor")
+   
