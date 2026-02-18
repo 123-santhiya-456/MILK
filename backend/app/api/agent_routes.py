@@ -17,7 +17,7 @@ if not GROQ_API_KEY:
 
 # Groq client
 client = OpenAI(
-    api_key="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",
+    api_key="GROQ_API_KEY",
     base_url="https://api.groq.com/openai/v1"
 )
 
